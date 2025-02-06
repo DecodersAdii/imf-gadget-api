@@ -2,7 +2,7 @@ const Gadget = require('../models/Gadget');
 
 const getAllGadgets = async (req, res) => {
   const { status } = req.query; // Get the status from query parameters
-
+    
   let whereClause = {};
   if (status) {
     whereClause.status = status; // Filter by status if provided
