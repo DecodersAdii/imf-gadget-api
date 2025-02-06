@@ -7,14 +7,14 @@ const getAllGadgets = async (req, res) => {
     whereClause.status = status; // Filter by status if provided
   } 
   
-
-  const gadgets = await Gadget.findAll({ where: whereClause });
+const gadgets = await Gadget.findAll({ where: whereClause });
   const gadgetsWithProbability = gadgets.map(gadget => ({
     ...gadget.toJSON(),
     missionSuccessProbability: Math.floor(Math.random() * 100),
   }));
   res.json(gadgetsWithProbability);
 };
+  
 
 const addGadget = async (req, res) => {
   const { name } = req.body;
